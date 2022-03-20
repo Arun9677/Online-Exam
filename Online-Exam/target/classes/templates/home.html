@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+HomePage<br><br>
+<form method="get">
+<div sec:authorize="hasRole('FACULTY')">
+<input type="submit" value="Create Question" formaction="#" th:formaction="@{/questionForm}"><br><br>
+<input type="submit" value="All Result" formaction="#" th:formaction="@{/result}"><br><br>
+</div>
+<div sec:authorize="hasRole('STUDENT')">
+<input type="submit" value="Test" formaction="#" th:formaction="@{/testForm}"><br><br>
+<input type="submit" value="Score" formaction="#" th:formaction="@{/score}"><br><br>
+</div>
+<div sec:authorize="hasAnyRole('FACULTY','STUDENT')">
+<input type="submit" value="Log Out" formaction="#" th:formaction="@{/logout}">
+</div>
+</form>
+</body>
+</html>

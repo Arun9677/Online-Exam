@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="ISO-8859-1">
+<title>Question Form</title>
+</head>
+<body>
+Question Page<br><br>
+<form action="#" th:action="@{/questionForm}" method="post" th:object="${quest}">
+Question :<br>
+<input type="text" th:field="*{quest}"><br><br>
+Option A :<br>
+<input type="text" th:field="*{optionA}"><br><br>
+Option B :<br>
+<input type="text" th:field="*{optionB}"><br><br>
+Option C :<br>
+<input type="text" th:field="*{optionC}"><br><br>
+Option D :<br>
+<input type="text" th:field="*{optionD}"><br><br>
+Answer :<br>
+<input type="radio" th:field="*{answer}" value="A"> A &emsp;
+<input type="radio" th:field="*{answer}" value="B"> B &emsp;
+<input type="radio" th:field="*{answer}" value="C"> C &emsp;
+<input type="radio" th:field="*{answer}" value="D"> D <br><br>
+<input type="submit" value="Add">
+</form>
+</body>
+</html>
