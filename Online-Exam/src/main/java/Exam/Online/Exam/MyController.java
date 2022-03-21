@@ -338,10 +338,13 @@ public class MyController {
 			{
 				if(m.getId() == u.getId())
 				{
-					Result result = new Result();
-					result.setStudent(u.getUsername());
-					result.setMarks(m.getMarks());
-					results.add(result);
+					if(m.getMarks() != -1)
+					{
+						Result result = new Result();
+						result.setStudent(u.getUsername());
+						result.setMarks(m.getMarks());
+						results.add(result);
+					}
 					break;
 				}
 			}
