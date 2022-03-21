@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Edit Question</title>
+</head>
+<body>
+<form action="#" th:action="@{/questionForm}" th:object="${question}" method="post">
+Id :<br>
+<input type = "text" th:field="*{id}"  readonly="readonly"><br><br>
+Question :<br>
+<input type = "text" th:field="*{quest}"><br><br>
+Option A :<br>
+<input type = "text" th:field="*{optionA}"><br><br>
+Option B :<br>
+<input type = "text" th:field="*{optionB}"><br><br>
+Option C :<br>
+<input type = "text" th:field="*{optionC}"><br><br>
+Option D :<br>
+<input type = "text" th:field="*{optionD}"><br><br>
+Answer :<br>
+<input type = "text" th:field="*{answer}"><br><br>
+<input type = "submit" value = "Update">
+</form><br><br>
+<a href="/">Main Page</a>
+</body>
+</html>
