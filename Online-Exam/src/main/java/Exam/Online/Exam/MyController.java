@@ -106,11 +106,17 @@ public class MyController {
 	}
 	
 	@PostMapping("/verify")
-	public String mailVerified(@Param("code") String code)
+	public String mailVerified(@Param("code") String code, RedirectAttributes attributes)
 	{
 		if(code != null)
 		{
 			User user = userService.findByCode(code);
+			if(user == null)
+			{
+				System.out.println("user null");
+				attributes.addFlashAttribute("error", "Verification is not correct");
+				return "redirect:/nullUser";
+			}
 			if(user.getId() != 0)
 			{
 				user.setEnable(true);
@@ -127,6 +133,12 @@ public class MyController {
 			}
 		}
 		return "redirect:/verify";
+	}
+	
+	@RequestMapping("/nullUser")
+	public String nullUser()
+	{
+		return "ErrorVerify";
 	}
 	
 	@GetMapping("/questionForm")
